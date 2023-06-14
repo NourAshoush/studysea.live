@@ -1,0 +1,164 @@
+<div>
+  <h2 id="page-heading" data-cy="UserExtendedHeading">
+    <span jhiTranslate="teamprojectApp.userExtended.home.title">User Extendeds</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="teamprojectApp.userExtended.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-user-extended"
+        [routerLink]="['/user-extended/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="teamprojectApp.userExtended.home.createLabel"> Create a new User Extended </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="userExtendeds?.length === 0">
+    <span jhiTranslate="teamprojectApp.userExtended.home.notFound">No User Extendeds found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="userExtendeds && userExtendeds.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="firstName">
+            <div class="d-flex">
+              <span jhiTranslate="teamprojectApp.userExtended.firstName">First Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastName">
+            <div class="d-flex">
+              <span jhiTranslate="teamprojectApp.userExtended.lastName">Last Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="email">
+            <div class="d-flex">
+              <span jhiTranslate="teamprojectApp.userExtended.email">Email</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="status">
+            <div class="d-flex">
+              <span jhiTranslate="teamprojectApp.userExtended.status">Status</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="institution">
+            <div class="d-flex">
+              <span jhiTranslate="teamprojectApp.userExtended.institution">Institution</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="course">
+            <div class="d-flex">
+              <span jhiTranslate="teamprojectApp.userExtended.course">Course</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="description">
+            <div class="d-flex">
+              <span jhiTranslate="teamprojectApp.userExtended.description">Description</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="privacy">
+            <div class="d-flex">
+              <span jhiTranslate="teamprojectApp.userExtended.privacy">Privacy</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="darkMode">
+            <div class="d-flex">
+              <span jhiTranslate="teamprojectApp.userExtended.darkMode">Dark Mode</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="user.login">
+            <div class="d-flex">
+              <span jhiTranslate="teamprojectApp.userExtended.user">User</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="studySession.id">
+            <div class="d-flex">
+              <span jhiTranslate="teamprojectApp.userExtended.studySession">Study Session</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let userExtended of userExtendeds; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/user-extended', userExtended.id, 'view']">{{ userExtended.id }}</a>
+          </td>
+          <td>{{ userExtended.firstName }}</td>
+          <td>{{ userExtended.lastName }}</td>
+          <td>{{ userExtended.email }}</td>
+          <td>{{ userExtended.status }}</td>
+          <td>{{ userExtended.institution }}</td>
+          <td>{{ userExtended.course }}</td>
+          <td>{{ userExtended.description }}</td>
+          <td>{{ userExtended.privacy }}</td>
+          <td>{{ userExtended.darkMode }}</td>
+          <td>
+            {{ userExtended.user?.login }}
+          </td>
+          <td>
+            <div *ngIf="userExtended.studySession">
+              <a [routerLink]="['/study-session', userExtended.studySession.id, 'view']">{{ userExtended.studySession.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/user-extended', userExtended.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/user-extended', userExtended.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(userExtended)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

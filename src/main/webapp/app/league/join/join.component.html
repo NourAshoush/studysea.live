@@ -1,0 +1,23 @@
+<ng-template [ngIf]="league == null || userx == null || alreadyMember()" [ngIfElse]="valid">
+  <div class="container text-red">
+    <p class="h4 text-center">Error</p>
+    <p *ngIf="userx == null">Unable to fetch your user!</p>
+    <p *ngIf="league == null">Unable to find a league table with that id!</p>
+    <p *ngIf="alreadyMember()">
+      You are already a member of <b>{{ league?.name }}</b
+      >!
+    </p>
+  </div>
+</ng-template>
+<ng-template #valid>
+  <div class="container">
+    <p class="h4 text-center">
+      Join the <b>{{ league?.name ?? '???' }}</b> league?
+    </p>
+    <br />
+    <div class="text-center">
+      <p>This league currently has {{ league?.members?.length }} {{ league?.members?.length === 1 ? 'member' : 'members' }}</p>
+      <button class="fancy-button" role="button" (click)="joinLeague()">Join</button>
+    </div>
+  </div>
+</ng-template>

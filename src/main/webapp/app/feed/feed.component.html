@@ -1,0 +1,34 @@
+<!--
+These are the modals for creating, viewing/commenting, and reporting posts
+They appear when the corresponding modalService variable is set to true in the component.ts file
+-->
+<jhi-create-post *ngIf="modalService.showCreatePost"></jhi-create-post>
+
+<jhi-view-post
+  *ngIf="modalService.showViewPost"
+  [post]="selectedPost"
+  (deleteContent)="onDelete($event)"
+  (reportContent)="onReport($event)"
+></jhi-view-post>
+
+<jhi-delete-post-or-comment *ngIf="modalService.showDeleteModal" [contentToDelete]="contentToDelete"></jhi-delete-post-or-comment>
+
+<jhi-report *ngIf="modalService.showReportModal" [contentToReport]="contentToReport"></jhi-report>
+
+<div id="page-top">
+  <h1 id="title">What's New?</h1>
+  <a tabindex="0" id="create-post-button" (keydown)="onKeyDown($event)" (click)="modalService.showCreatePost = true">Create Post</a>
+</div>
+
+<!--
+This displays all the modules below the header
+The posts component is set to receive and emit an event which arrives here in the feed component
+When the viewPost variable in posts.component.ts is emitted, it makes the feed component show the
+viewing/commenting modal, along with the post details (the $event below)
+-->
+<jhi-posts
+  (viewPost)="onViewPost($event)"
+  (deletePost)="onDelete($event)"
+  (reportPost)="onReport($event)"
+  [filterBy]="'friends'"
+></jhi-posts>

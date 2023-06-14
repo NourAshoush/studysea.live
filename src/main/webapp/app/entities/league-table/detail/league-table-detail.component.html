@@ -1,0 +1,39 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="leagueTable">
+      <h2 data-cy="leagueTableDetailsHeading"><span jhiTranslate="teamprojectApp.leagueTable.detail.title">League Table</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ leagueTable.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="teamprojectApp.leagueTable.name">Name</span></dt>
+        <dd>
+          <span>{{ leagueTable.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="teamprojectApp.leagueTable.members">Members</span></dt>
+        <dd>
+          <span *ngFor="let members of leagueTable.members; let last = last">
+            <a [routerLink]="['/user-extended', members.id, 'view']">{{ members.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/league-table', leagueTable.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<div id="overlay" (click)="ngOnDestroy()" xmlns="http://www.w3.org/1999/html"></div>
+
+<div id="container">
+  <div id="header">Start a Study Session</div>
+  <div id="content" class="text-center">
+    Enter some details below to start an instant study session! <br />
+    <!--    <label>Title:</label>-->
+    <br />
+    <input class="textInput full-width" type="text" #titleBox (keyup)="setTitle(titleBox.value)" placeholder="Enter title here..." />
+    <br />
+    <br />
+    <input
+      class="textInput full-width"
+      type="text"
+      #subjectBox
+      (keyup)="setSubject(subjectBox.value)"
+      placeholder="Enter subject here..."
+    />
+
+    <br />
+  </div>
+  <div class="full-width" id="center-align">
+    <div class="w-40 d-inline-block">
+      <br />
+      <label>Study Length:</label>
+      <br />
+      <input
+        type="number"
+        #studyLengthBox
+        (keyup)="setStudyLength(studyLengthBox.value)"
+        value="25"
+        min="1"
+        max="60"
+        class="full-width textInput"
+      />
+      <br />
+    </div>
+    <div class="w-40 d-inline-block">
+      <br />
+      <label>Break Length:</label>
+      <br />
+      <input
+        type="number"
+        #breakLengthBox
+        (keyup)="setBreakLength(breakLengthBox.value)"
+        value="5"
+        min="1"
+        max="60"
+        class="full-width textInput"
+      />
+      <br />
+    </div>
+  </div>
+  <div id="actions">
+    <div class="d-flex justify-content-around">
+      <button class="cancel" (click)="ngOnDestroy()"><fa-icon icon="ban"></fa-icon> Cancel</button>
+      <!--      <div *ngIf="breakLengthBox.value != '' && studyLengthBox.value != '' && +studyLengthBox.value > 0; else invalid">-->
+      <div *ngIf="breakLengthBox.value != '' && studyLengthBox.value != ''; else invalid">
+        <button (click)="startStudySession()">Start <fa-icon icon="arrow-right"></fa-icon></button>
+      </div>
+      <ng-template #invalid>
+        <button disabled class="proceed opacity-50">Start <fa-icon icon="arrow-right"></fa-icon></button>
+      </ng-template>
+    </div>
+  </div>
+</div>

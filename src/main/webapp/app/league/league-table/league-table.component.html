@@ -1,0 +1,22 @@
+<div tabindex="0" class="league-table-container">
+  <div class="league-table-banner">{{ league?.name }}</div>
+  <div class="member-list-container">
+    <table>
+      <tbody>
+        <ng-container>
+          <tr *ngFor="let userExtended of memberUserExtendeds">
+            <td>#{{ userExtended.rank }}</td>
+            <td>{{ userExtended.userLogin }}</td>
+            <td>
+              {{
+                userExtended?.totalStudyTime === 0 || userExtended?.totalStudyTime === null
+                  ? 'Not Studied'
+                  : (userExtended?.totalStudyTime | number: '1.2-2') + ' hours'
+              }}
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>

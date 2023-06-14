@@ -1,0 +1,16 @@
+<br />
+<details class="fancy">
+  <summary class="fancy-button">Join a League</summary>
+  <div>
+    <form id="form" [formGroup]="joinLeagueForm" (ngSubmit)="joinLeague()">
+      <input
+        id="input"
+        autocomplete="off"
+        placeholder="Enter a league code"
+        formControlName="code"
+        (keydown.enter)="joinLeague(); $event.preventDefault()"
+      />
+      <button>Add</button>
+    </form>
+  </div>
+</details>

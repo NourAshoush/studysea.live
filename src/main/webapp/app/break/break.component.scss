@@ -1,0 +1,238 @@
+/* ==========================================================================
+Main page styles
+========================================================================== */
+
+.hipster {
+  display: inline-block;
+  width: 347px;
+  height: 497px;
+}
+
+.button-9:focus {
+  box-shadow: rgba(50, 50, 93, 0.1) 0 0 0 1px inset, rgba(50, 50, 93, 0.2) 0 6px 15px 0, rgba(0, 0, 0, 0.1) 0 2px 2px 0,
+    rgba(50, 151, 211, 0.3) 0 0 0 4px;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+.main-container {
+  padding-top: 1rem;
+  height: 100%;
+  max-width: calc(100% - 2rem);
+}
+
+.component-container {
+  position: relative;
+  border-radius: 15px;
+  height: 100% !important;
+  max-height: 100%;
+  padding: 3rem 2rem;
+  //width: auto;
+  background-color: var(--containers);
+  overflow: hidden;
+  margin: 1rem;
+}
+
+.chat-box-header,
+.timer-box-header,
+.list-box-header,
+.exit-session-box-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--blue);
+  text-align: center;
+  color: white;
+  padding: 0.8rem;
+  line-height: 1rem;
+  max-height: 2.6rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.component-container-body {
+  margin-top: 2rem;
+}
+
+.row {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  align-items: center;
+  height: 100%;
+}
+
+jhi-bg-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  //z-index: -1;
+}
+
+.button-1 {
+  border: 2.5px solid white;
+  font-family: var(--font);
+  font-weight: 500;
+  display: inline-block;
+  margin-left: auto;
+  background: Transparent;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1rem;
+  line-height: 2.7rem;
+  border-radius: 50px;
+  width: 300px;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.button-1:hover {
+  background: #ebebeb;
+  color: var(--blue);
+  box-shadow: var(--button-box-shadow);
+}
+
+.header,
+.sea-container {
+  background: linear-gradient(60deg, rgb(38, 84, 171) 0%, rgb(66, 119, 231) 33%, rgb(25, 82, 173) 67%, rgb(3, 72, 194) 100%);
+  background: var(--wave-sky);
+  background-size: 500%;
+  color: white;
+  width: 100%;
+  animation: sky-animation 35s infinite alternate paused;
+  margin-top: 1rem !important;
+
+  jhi-countdown {
+    position: relative;
+    top: 1.5rem;
+    transition: top 1s ease-in-out;
+  }
+
+  .parallax > use {
+    animation: waves-animation 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite paused;
+    opacity: 0;
+    transition: opacity 0.75s ease-in-out;
+
+    &:nth-child(1) {
+      animation-delay: -20s;
+      animation-duration: 20s;
+    }
+
+    &:nth-child(2) {
+      transition-delay: 0.25s;
+      animation-delay: -15s;
+      animation-duration: 25s;
+    }
+
+    &:nth-child(3) {
+      transition-delay: 0.5s;
+      animation-delay: -0s;
+      animation-duration: 35s;
+    }
+
+    &:nth-child(4) {
+      transition-delay: 0.75s;
+      animation-delay: -10s;
+      animation-duration: 45s;
+    }
+  }
+
+  &.animate {
+    animation-play-state: running;
+
+    jhi-countdown {
+      top: 0;
+    }
+
+    .parallax > use {
+      animation-play-state: running;
+      opacity: 1;
+    }
+  }
+}
+
+.inner-header {
+  height: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  animation-name: fade;
+  animation-duration: 0.5s;
+  //animation-delay: 0.6s;
+  animation-fill-mode: forwards;
+}
+
+.flex {
+  /*Flexbox for containers*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.waves {
+  position: relative;
+  width: 100%;
+  flex-grow: 1;
+  min-height: 25px;
+  max-height: 75px;
+}
+
+.content {
+  position: relative;
+  height: 1.5vh; // prevent empty space on tall displays (where 150px is less than 22vh?)
+  text-align: center;
+  background-color: var(--content);
+}
+
+/* Animation */
+@keyframes waves-animation {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes sky-animation {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
+  }
+}
+
+/* Shrinking for mobile */
+@media (max-width: 768px) {
+  .waves {
+    height: 25px;
+    min-height: 75px;
+  }
+  .content {
+    height: 1.5vh;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+
+.lead {
+  color: white;
+}

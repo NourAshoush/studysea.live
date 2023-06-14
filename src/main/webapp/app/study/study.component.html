@@ -1,0 +1,32 @@
+<div class="page-top"></div>
+
+<!--<p class="lead text-center" jhiTranslate="home.subtitle">This is your homepage</p>-->
+<jhi-bg-animation></jhi-bg-animation>
+<jhi-confirm-exit-study *ngIf="modalService.showConfirmExitSessionStudy"></jhi-confirm-exit-study>
+
+<div class="toggle">
+  <input type="checkbox" (change)="toggleAnimation()" [checked]="!animate.disabled" />
+  <label>Enable Animation</label>
+</div>
+
+<div class="main-container">
+  <div class="study-timer-container">
+    <!--    <p class="h4 text-center">Room: {{ roomService.roomCode }}</p>-->
+    <div *ngIf="isDataAvailable">
+      <p class="h4 text-center">Task: {{ this.title }}</p>
+    </div>
+    <p class="h2 text-center">time left to study:</p>
+    <!--    <p class="h3 text-center">to study</p>-->
+    <br />
+    <div class="text-center">
+      <!--      {{blockStudyEndTime}}-->
+      <jhi-countdown [targetTime]="blockStudyEndTime" *ngIf="blockStudyEndTime !== undefined"></jhi-countdown>
+      <jhi-progress-bar [targetTime]="blockStudyEndTime"></jhi-progress-bar>
+      <br /><br />
+      <button class="fancy-button" role="button" (click)="modalService.showConfirmExitSessionStudy = true">Exit Study Session</button>
+      <br />
+      <br />
+      <!--      <button class="fancy-button" role="button" routerLink="/break">[dev] Skip to Break</button>-->
+    </div>
+  </div>
+</div>

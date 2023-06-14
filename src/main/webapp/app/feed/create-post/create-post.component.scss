@@ -1,0 +1,151 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(1, 17, 35, 0.6);
+  z-index: 20;
+  animation-duration: 0.2s;
+  animation-name: fade;
+}
+
+.container {
+  margin: auto;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 21;
+  font-family: var(--font);
+  border-radius: 10px;
+  background-color: var(--containers);
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  box-shadow: 0 5px 5px black;
+  border: white;
+  animation-duration: 0.6s;
+  animation-name: fade;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 1rem 5% 0;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 2% 5% 2%;
+  font-size: medium;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 1rem;
+}
+
+.requiredLabel {
+  color: red;
+  font-weight: bold;
+}
+
+label {
+  font-size: medium;
+  font-weight: normal;
+}
+
+button {
+  background: var(--blue);
+  border-color: var(--blue);
+  text-decoration: none;
+  color: #ffffff;
+  font-size: medium;
+  line-height: 2rem;
+  border-radius: 50px;
+  max-width: 35vw;
+  width: 170px;
+  text-align: center;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+
+  &.cancel {
+    background-color: #ffffff;
+    color: var(--blue);
+  }
+}
+
+button:hover {
+  background: #ffffff;
+  color: var(--blue);
+
+  &.cancel {
+    color: red;
+    border-color: red;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+input {
+  height: 2rem;
+}
+
+textarea {
+  height: 6rem;
+  resize: none;
+}
+
+input,
+textarea {
+  padding-left: 2%;
+  padding-right: 2%;
+  width: 100%;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: lightslategray;
+  font-weight: lighter;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  /* Mobile view */
+  .container {
+    width: 100%;
+    max-width: 90vw;
+  }
+
+  textarea {
+    margin-bottom: 2%;
+    padding: 2%;
+    resize: none;
+  }
+}
+
+@media (min-width: 769px) {
+  /* Desktop view */
+  .container {
+    width: 40%;
+  }
+
+  textarea {
+    min-height: 10vh;
+    max-height: 15vh;
+    margin-bottom: 2%;
+    padding-left: 2%;
+  }
+}

@@ -1,0 +1,23 @@
+<div class="task-box">
+  <!--  <div class="header">-->
+  <!--    <h5>Scheduled Tasks</h5>-->
+  <!--  </div>-->
+  <div tabindex="0" class="task-container">
+    <span *ngIf="tasks?.length == 0">You have no planned tasks</span>
+    <div *ngFor="let task of tasks">
+      <div class="box">
+        <p class="task-title">
+          <b>{{ task.title }}</b
+          >, {{ task.subject }}:
+          <b *ngIf="isOverdue(task.start)">Overdue from</b>
+          {{ isTomorrow(task.start) }} at {{ getTimeString(task.start) }}
+
+          <button class="join-button" (click)="this.newService.getTaskInformation(task)" title="start task">Join</button>
+          <button class="delete-button" (click)="this.removeTask(task)" title="delete">
+            <fa-icon icon="trash-alt" title="delete task"></fa-icon>
+          </button>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

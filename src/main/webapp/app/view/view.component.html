@@ -1,0 +1,66 @@
+<jhi-create-task *ngIf="modalService.showCreateTask"></jhi-create-task>
+<jhi-create-league *ngIf="modalService.showCreateLeague"></jhi-create-league>
+<jhi-new-study-session *ngIf="modalService.showNewStudySession"></jhi-new-study-session>
+<jhi-join-study-session *ngIf="modalService.showJoinBuddySession" [studySessionToJoin]="studySessionToJoin"></jhi-join-study-session>
+
+<div class="page-top"></div>
+
+<!--<p class="lead text-center" jhiTranslate="home.subtitle">This is your homepage</p>-->
+<div class="row">
+  <div class="col-md">
+    <button class="fancy-button" (click)="modalService.showCreateTask = true">Create Task</button>
+    <div class="embed-container task-schedule-container">
+      <h2 tabindex="0">Tasks</h2>
+      <jhi-task></jhi-task>
+    </div>
+  </div>
+  <div class="col-md">
+    <p tabindex="0" class="introText">
+      Welcome <b>{{ account?.login !== null ? account?.login : 'User' }}</b
+      >, this is studySea - A social studying app with all the features you will need to stay motivated, social and to prevent burnout. If
+      you would like to learn about the effective pomodoro study technique click below.
+    </p>
+
+    <details class="fancy whyPomodoro">
+      <summary class="fancy-button">Why Pomodoro?</summary>
+      <div class="why-container">
+        By taking breaks regularly the Pomodoro method allows you to retain a high level of focus throughout study, this in turn makes your
+        studying more effective!
+      </div>
+    </details>
+
+    <div class="embed-container">
+      <h2 tabindex="0">Leagues</h2>
+      <button class="fancy-button" routerLink="/league">My Leagues</button>
+      <button class="fancy-button" (click)="modalService.showCreateLeague = true">Create a League</button>
+      <jhi-league-join></jhi-league-join>
+    </div>
+  </div>
+  <div class="col-md">
+    <button class="fancy-button" role="button" (click)="modalService.showNewStudySession = true">
+      <span>
+        Start a Study Session
+        <fa-icon icon="arrow-right"> </fa-icon>
+      </span>
+    </button>
+
+    <details class="fancy">
+      <summary class="fancy-button">
+        Find a Study Buddy
+
+        <fa-icon icon="arrow-right"> </fa-icon>
+      </summary>
+      <div class="study-session-container">
+        <span *ngIf="sessions?.length == 0">There are no currently active sessions. Why not start one?</span>
+        <div class="block" *ngFor="let session of sessions">
+          <p>Session ID: {{ session.id }} <button class="join" (click)="openJoinSessionModal(session)">Join</button></p>
+        </div>
+      </div>
+    </details>
+    <!--    <button (click)="getTaskInformation(10)">(DEV) GET TASK INFORMATION</button>-->
+    <div class="embed-container">
+      <h2 tabindex="0">Friends</h2>
+      <jhi-friends-page (studySessionToJoin)="openJoinSessionModal($event)"></jhi-friends-page>
+    </div>
+  </div>
+</div>

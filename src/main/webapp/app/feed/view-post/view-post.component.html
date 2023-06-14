@@ -1,0 +1,45 @@
+<div class="overlay" (click)="ngOnDestroy()"></div>
+
+<div class="container">
+  <jhi-post
+    [post]="post"
+    [username]="username"
+    (viewPost)="ngOnDestroy()"
+    (deletePost)="onDelete($event)"
+    (reportPost)="onReport($event)"
+  ></jhi-post>
+
+  <div class="comment-area">
+    <textarea
+      #commentBox
+      placeholder="Write a comment"
+      (keyup)="getCommentInput(commentBox.value)"
+      oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
+      (keydown.enter)="postComment(commentBox); $event.preventDefault()"
+    ></textarea>
+    <button
+      class="post-comment-button"
+      [disabled]="!commentProvidedCondition"
+      [ngClass]="{ 'disabled-button': !commentProvidedCondition }"
+      (click)="postComment(commentBox)"
+    >
+      Post
+    </button>
+  </div>
+
+  <div *ngIf="comments.length === 0" class="no-comments">
+    <span>Be the first to comment!</span>
+  </div>
+
+  <!-- Loops through and displays all comments on the post opened -->
+  <div class="comments">
+    <jhi-comment
+      *ngFor="let comment of comments"
+      [comment]="comment"
+      [username]="username"
+      (deleteComment)="onDelete($event)"
+      (reportComment)="onReport($event)"
+    ></jhi-comment>
+  </div>
+  <!--  <jhi-post *ngFor="let post of posts" [post]="post" (viewPost)="onViewPost($event)"></jhi-post>-->
+</div>

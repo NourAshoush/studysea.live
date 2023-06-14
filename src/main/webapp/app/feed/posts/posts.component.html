@@ -1,0 +1,11 @@
+<!-- loops through the posts list and passes each post to the post component to be displayed -->
+<jhi-post
+  *ngFor="let post of posts"
+  [post]="post"
+  [username]="username"
+  (viewPost)="onViewPost($event)"
+  (deletePost)="onDelete($event)"
+  (reportPost)="onReport($event)"
+></jhi-post>
+
+<div class="no-posts" *ngIf="posts.length == 0">No Posts To See Here!</div>

@@ -1,0 +1,12 @@
+<div id="overlay" (click)="modalService.showConfirmExitSessionBreak = false"></div>
+
+<div id="container">
+  <div id="header">You are trying to exit!</div>
+  <div id="content" class="text-center">Please confirm your decision to exit the study session...</div>
+  <div id="actions">
+    <div class="d-flex justify-content-around">
+      <button class="cancel" (click)="ngOnDestroy()"><fa-icon icon="arrow-left"></fa-icon> Go Back</button>
+      <button (click)="continueExit()">Continue <fa-icon icon="right-from-bracket"></fa-icon></button>
+    </div>
+  </div>
+</div>

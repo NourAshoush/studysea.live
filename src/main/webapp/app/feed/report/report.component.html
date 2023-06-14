@@ -1,0 +1,16 @@
+<div class="overlay" (click)="ngOnDestroy()"></div>
+
+<div class="container">
+  <p class="container-title" *ngIf="contentTypeIsPost">Are you sure you want to report {{ postToReport.createdBy }}'s post?</p>
+  <p class="container-title" *ngIf="!contentTypeIsPost">Are you sure you want to report {{ commentToReport.author }}'s comment?</p>
+  <p class="container-description">
+    We will take your report into consideration and act upon it accordingly. You can provide your reasoning for why you've reported this
+    post below:
+  </p>
+  <textarea (keyup)="updateAltVar(reasonBox.value)" placeholder="optional" class="reason" #reasonBox></textarea>
+
+  <div class="action-buttons">
+    <button class="cancel" (click)="ngOnDestroy()"><fa-icon icon="ban"></fa-icon>&nbsp;Cancel</button>
+    <button (click)="reportContent(reasonBox.value)"><fa-icon icon="exclamation-circle"></fa-icon>&nbsp;Report</button>
+  </div>
+</div>

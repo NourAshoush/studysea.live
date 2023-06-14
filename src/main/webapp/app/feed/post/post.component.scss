@@ -1,0 +1,98 @@
+.post {
+  padding: 1.8rem 1rem 0 1rem;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.feed-box-container {
+  border-radius: 15px;
+  height: 100%;
+  background-color: var(--containers);
+  overflow: hidden;
+  margin: 0 auto;
+  box-shadow: var(--button-box-shadow);
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.feed-box-container:hover {
+  box-shadow: 0 5px 10px rgb(30, 75, 152, 0.6);
+}
+
+.feed-box-content {
+  text-align: left;
+  padding-right: 5%;
+  padding-left: 5%;
+  padding-top: 1%;
+}
+
+.feed-box-header {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1%;
+
+  &.feed-box-header p {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--feed-box-header);
+  }
+}
+
+.feed-box-content h1 {
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.feed-box-content h2 {
+  font-size: 1.2rem;
+  color: var(--text-color);
+}
+
+.feed-box-content p {
+  font-size: 1.4rem;
+  color: var(--text-color);
+}
+
+.feed-box-footer {
+  background-color: var(--blue);
+  text-align: center;
+  color: #eeeeee;
+  padding: 0.4rem;
+  line-height: 1rem;
+  max-height: 1.8rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.like-icon {
+  color: #eeeeee;
+  transition: color 0.15s ease-in-out;
+
+  &:hover {
+    color: #ffbaba;
+  }
+
+  &.liked-icon {
+    color: #ff5454;
+  }
+}
+
+.comment-icon {
+  color: white;
+  transition: color 0.15s ease-in-out;
+
+  &:hover {
+    color: lightgray;
+  }
+}
+
+.action-button {
+  color: #eeeeee;
+  transition: color 0.15s ease-in-out;
+
+  &:hover {
+    color: red;
+  }
+}

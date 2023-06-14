@@ -1,0 +1,98 @@
+<jhi-bg-animation [reverseDirection]="true"></jhi-bg-animation>
+<jhi-confirm-exit *ngIf="modalService.showConfirmExitSessionBreak"></jhi-confirm-exit>
+
+<div class="main-container">
+  <div class="row">
+    <div class="col-md text-center component-container p-0">
+      <div class="d-inline-flex flex-row w-100">
+        <div class="timer-box-header">
+          <p class="lead">Break Time Remaining</p>
+        </div>
+        <div class="component-container-body sea-container" [class.animate]="!animate.disabled">
+          <div class="mt-5">
+            <!--            Time left in break:<br />-->
+            <jhi-countdown [targetTime]="blockStudyEndTime" *ngIf="blockStudyEndTime !== undefined"></jhi-countdown>
+            <br />
+            <!--            <button class="fancy-button exit-button" role="button" (click)="modalService.showConfirmExitSessionBreak = true">-->
+            <!--              Exit Study Session-->
+            <!--            </button>-->
+          </div>
+          <div class="inner-header flex">
+            <svg
+              class="icon"
+              width="100%"
+              height="64px"
+              viewBox="0 0 450 450"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              style="stroke-linejoin: round; padding-right: 1rem"
+            >
+              <g>
+                <!--                <path-->
+                <!--                  d="M3.607 265.307C1.237 252.229 0 238.758 0 225 0 100.819 100.819 0 225 0s225 100.819 225 225-100.819-->
+                <!--          225-225 225c-86.905 0-162.369-49.377-199.842-121.583 17.545 4.453 36.732 7.551 56.552 7.795 82.925 1.024-->
+                <!--          127.581-50.856 147.425-119.032 9.525-32.727 37.306-43.854 61.847-47.889 28.608-4.703 43.827-.479-->
+                <!--          43.827-.479l20.453-52.047s-34.618-6.559-72.957-.256c-42.412 6.972-88.067 29.162-104.529 85.722C164.703-->
+                <!--          247.144 137 283.4 82.37 282.726c-29.832-.368-57.863-8.835-78.763-17.419z"-->
+                <!--                  style="fill: white"-->
+                <!--                />-->
+              </g>
+            </svg>
+          </div>
+          <!--Waves Container-->
+          <div>
+            <svg class="waves" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+              <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+              </defs>
+              <g class="parallax">
+                <!--                <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />-->
+                <!--                <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />-->
+                <!--                <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />-->
+                <use xlink:href="#gentle-wave" x="48" y="0" fill="var(--wave-colour-op7)" />
+                <use xlink:href="#gentle-wave" x="48" y="3" fill="var(--wave-colour-op5)" />
+                <use xlink:href="#gentle-wave" x="48" y="5" fill="var(--wave-colour-op3)" />
+                <use xlink:href="#gentle-wave" x="48" y="7" fill="var(--wave-colour)" />
+              </g>
+            </svg>
+          </div>
+          <!--Waves end-->
+
+          <div class="content flex"></div>
+        </div>
+      </div>
+    </div>
+    <!--    <div class="col-md text-center component-container p-0">-->
+    <!--      <div class="component-container-body exit-container">-->
+    <!--        <div class="exit-session-box-header">-->
+    <!--          <p class="lead">Exit</p>-->
+    <!--        </div>-->
+    <!--        <div class="exit-container-body p-4">-->
+
+    <!--          <div class="exit-container-body-content" (click)="modalService.showConfirmExitSessionBreak = true">-->
+    <!--            Click here to exit your study session!-->
+
+    <!--          </div>-->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--    </div>-->
+  </div>
+  <div class="row">
+    <div class="col-md component-container chat">
+      <div class="chat-box-header">
+        <p class="lead">studySea Break Chat</p>
+      </div>
+      <div class="component-container-body">
+        <jhi-chat></jhi-chat>
+      </div>
+    </div>
+    <div class="col-md component-container">
+      <div class="list-box-header text-center">
+        <p class="lead">Session Information</p>
+      </div>
+      <div class="component-container-body">
+        <jhi-user-list></jhi-user-list>
+      </div>
+    </div>
+  </div>
+</div>

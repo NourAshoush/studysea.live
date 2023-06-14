@@ -1,0 +1,95 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  padding: 20px;
+}
+
+@media (min-width: 800px) {
+  .main-container {
+    flex-direction: row;
+  }
+  .chart-container {
+    width: calc(100% - 40px);
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+.global-league-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--containers);
+  border-radius: 15px;
+  z-index: 0;
+}
+
+@media (min-width: 800px) {
+  .global-league-container {
+    width: 650px;
+  }
+}
+
+.global-league-banner {
+  width: 100%;
+  background-color: #507be7;
+  color: #ebebeb;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: left;
+  padding: 20px 10px 20px 30px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.total-study,
+.total-hours,
+.total-tasks {
+  background-color: var(--secondary-container-transluscent);
+  border-radius: 10px;
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+  width: calc(100% - 40px);
+  box-sizing: border-box;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1.125rem;
+}
+
+.chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--seconday-container);
+  width: 100%;
+}
+
+@media screen and (min-width: 800px) {
+  .main-container {
+    flex-direction: row;
+  }
+
+  .global-league-container {
+    margin-right: 20px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .center-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}

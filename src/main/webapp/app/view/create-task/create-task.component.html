@@ -1,0 +1,61 @@
+<div id="overlay" (click)="ngOnDestroy()"></div>
+
+<div id="container">
+  <div id="header">Add a new task</div>
+
+  <div id="content">
+    <div class="times">
+      <label>Start Time:</label>
+      <br />
+      <input type="datetime-local" #startTimeBox (change)="getStartTime(startTimeBox.value)" class="textInput" />
+      <br />
+    </div>
+
+    <label>Study Length:</label>
+    <br />
+    <input
+      type="number"
+      #studyLengthBox
+      (keyup)="getStudyLength(studyLengthBox.value)"
+      placeholder="25"
+      min="5"
+      max="120"
+      style="width: 5rem"
+      class="textInput"
+    />
+    <br />
+    <label>Break Length:</label>
+    <br />
+    <input
+      type="number"
+      #breakLengthBox
+      (keyup)="getBreakLength(breakLengthBox.value)"
+      placeholder="5"
+      min="1"
+      max="60"
+      style="width: 5rem"
+      class="textInput"
+    />
+    <br />
+
+    <label>Title:</label>
+    <br />
+    <input type="text" #titleBox (keyup)="getTitle(titleBox.value)" placeholder="Enter title here..." class="full-width textInput" />
+    <br />
+
+    <label>Subject:</label>
+    <br />
+    <input
+      type="text"
+      #subjectBox
+      (keyup)="getSubject(subjectBox.value)"
+      placeholder="Enter subject here..."
+      class="full-width textInput"
+    />
+    <br /><br />
+    <div class="d-flex justify-content-around">
+      <button class="cancel" (click)="ngOnDestroy()"><fa-icon icon="ban"></fa-icon> Cancel</button>
+      <button (click)="saveTask()"><fa-icon icon="save"></fa-icon>&nbsp;Save</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div tabindex="0" class="main">
+  You currently have {{ friends?.length ?? 0 }} {{ friends?.length == 1 ? 'friend' : 'friends' }}!
+  <span *ngIf="friends?.length == 0"><br />(why not add some?)</span>
+  <div *ngFor="let friend of friends" class="list-item">
+    <span class="username">{{ friend.user?.login }}</span>
+    <span *ngIf="friend.studySession != null"><i>is studying now!</i></span>
+    <button class="join" *ngIf="friend.studySession != null" (click)="onJoin(friend)" title="join">
+      <fa-icon icon="code-merge"></fa-icon>
+      &nbsp;Join
+    </button>
+    <button class="delete" (click)="context.removeFriend(friend)" title="remove friend">
+      <fa-icon icon="trash-alt" title="remove friend"></fa-icon>
+    </button>
+  </div>
+</div>

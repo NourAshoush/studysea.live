@@ -1,0 +1,13 @@
+.league-tables-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 40px 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 800px) {
+  .league-tables-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

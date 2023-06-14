@@ -1,0 +1,52 @@
+<jhi-delete-post-or-comment *ngIf="modalService.showDeleteModal" [contentToDelete]="contentToDelete"></jhi-delete-post-or-comment>
+<jhi-report *ngIf="modalService.showReportModal" [contentToReport]="contentToReport"></jhi-report>
+
+<div class="container" *ngIf="showPost">
+  <jhi-post [post]="post" [username]="username" (deletePost)="onDelete($event)" (reportPost)="onReport($event)"></jhi-post>
+
+  <div class="comment-area">
+    <textarea
+      #commentBox
+      placeholder="Write a comment"
+      (keyup)="getCommentInput(commentBox.value)"
+      oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
+      (keydown.enter)="postComment(commentBox); $event.preventDefault()"
+    ></textarea>
+    <button
+      class="post-comment-button"
+      [disabled]="!commentProvidedCondition"
+      [ngClass]="{ 'disabled-button': !commentProvidedCondition }"
+      (click)="postComment(commentBox)"
+    >
+      Post
+    </button>
+  </div>
+
+  <div *ngIf="comments.length === 0" class="no-comments">
+    <span>Be the first to comment!</span>
+  </div>
+
+  <!-- Loops through and displays all comments on the post opened -->
+  <div class="comments">
+    <jhi-comment
+      *ngFor="let comment of comments"
+      [comment]="comment"
+      [username]="username"
+      (deleteComment)="onDelete($event)"
+      (reportComment)="onReport($event)"
+    ></jhi-comment>
+  </div>
+</div>
+
+<div class="post-not-found" *ngIf="!showPost">
+  <h1><b>Error</b></h1>
+  <h3>The post you are looking for is not found!</h3>
+  <h4>
+    <i>
+      This can be for several reasons:
+      <li>The post has been deleted</li>
+      <li>You cannot view this post due to privacy settings</li>
+      <li>You have edited the query in the URL</li>
+    </i>
+  </h4>
+</div>

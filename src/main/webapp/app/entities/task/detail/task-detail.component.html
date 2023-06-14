@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="task">
+      <h2 data-cy="taskDetailsHeading"><span jhiTranslate="teamprojectApp.task.detail.title">Task</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ task.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="teamprojectApp.task.start">Start</span></dt>
+        <dd>
+          <span>{{ task.start | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="teamprojectApp.task.creation">Creation</span></dt>
+        <dd>
+          <span>{{ task.creation | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="teamprojectApp.task.title">Title</span></dt>
+        <dd>
+          <span>{{ task.title }}</span>
+        </dd>
+        <dt><span jhiTranslate="teamprojectApp.task.subject">Subject</span></dt>
+        <dd>
+          <span>{{ task.subject }}</span>
+        </dd>
+        <dt><span jhiTranslate="teamprojectApp.task.studyLength">Study Length</span></dt>
+        <dd>
+          <span>{{ task.studyLength }}</span>
+        </dd>
+        <dt><span jhiTranslate="teamprojectApp.task.breakLength">Break Length</span></dt>
+        <dd>
+          <span>{{ task.breakLength }}</span>
+        </dd>
+        <dt><span jhiTranslate="teamprojectApp.task.completed">Completed</span></dt>
+        <dd>
+          <span>{{ task.completed }}</span>
+        </dd>
+        <dt><span jhiTranslate="teamprojectApp.task.createdBy">Created By</span></dt>
+        <dd>
+          <div *ngIf="task.createdBy">
+            <a [routerLink]="['/user-extended', task.createdBy.id, 'view']">{{ task.createdBy.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/task', task.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

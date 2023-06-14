@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="user-icon">
+    <fa-icon [icon]="faUser"></fa-icon>
+    <p class="description">"{{ description }}"</p>
+  </div>
+  <div class="user-details">
+    <h2>{{ firstname }} {{ lastname }}</h2>
+    <ul>
+      <li><strong>Email: </strong>{{ email }}</li>
+      <li><strong>Course: </strong>{{ course }}</li>
+      <li><strong>Institution: </strong>{{ institution }}</li>
+      <li><strong>Number of hours studied: </strong> {{ numHours }}</li>
+      <li><strong>Number of posts: </strong>{{ numPosts }}</li>
+      <li><strong>Number of tasks completed: </strong> {{ numTasks }}</li>
+      <li><strong>Friends: </strong> {{ numFriends }}</li>
+      <li><strong>Leagues: </strong> {{ numLeagues }}</li>
+    </ul>
+    <button id="edit-button">Edit</button>
+  </div>
+</div>

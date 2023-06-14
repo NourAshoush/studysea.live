@@ -1,0 +1,74 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="userExtended">
+      <h2 data-cy="userExtendedDetailsHeading"><span jhiTranslate="teamprojectApp.userExtended.detail.title">User Extended</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ userExtended.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="teamprojectApp.userExtended.firstName">First Name</span></dt>
+        <dd>
+          <span>{{ userExtended.firstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="teamprojectApp.userExtended.lastName">Last Name</span></dt>
+        <dd>
+          <span>{{ userExtended.lastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="teamprojectApp.userExtended.email">Email</span></dt>
+        <dd>
+          <span>{{ userExtended.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="teamprojectApp.userExtended.status">Status</span></dt>
+        <dd>
+          <span>{{ userExtended.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="teamprojectApp.userExtended.institution">Institution</span></dt>
+        <dd>
+          <span>{{ userExtended.institution }}</span>
+        </dd>
+        <dt><span jhiTranslate="teamprojectApp.userExtended.course">Course</span></dt>
+        <dd>
+          <span>{{ userExtended.course }}</span>
+        </dd>
+        <dt><span jhiTranslate="teamprojectApp.userExtended.description">Description</span></dt>
+        <dd>
+          <span>{{ userExtended.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="teamprojectApp.userExtended.privacy">Privacy</span></dt>
+        <dd>
+          <span>{{ userExtended.privacy }}</span>
+        </dd>
+        <dt><span jhiTranslate="teamprojectApp.userExtended.darkMode">Dark Mode</span></dt>
+        <dd>
+          <span>{{ userExtended.darkMode }}</span>
+        </dd>
+        <dt><span jhiTranslate="teamprojectApp.userExtended.user">User</span></dt>
+        <dd>
+          <span>{{ userExtended.user?.login }}</span>
+        </dd>
+        <dt><span jhiTranslate="teamprojectApp.userExtended.studySession">Study Session</span></dt>
+        <dd>
+          <div *ngIf="userExtended.studySession">
+            <a [routerLink]="['/study-session', userExtended.studySession.id, 'view']">{{ userExtended.studySession.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/user-extended', userExtended.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

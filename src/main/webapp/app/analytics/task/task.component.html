@@ -1,0 +1,12 @@
+<div tabindex="0" class="task-container">
+  <div class="task-header">
+    <h3>{{ task.title }}</h3>
+    <span class="task-subject">{{ task.subject }}</span>
+  </div>
+  <div class="task-details">
+    <p>Completed: {{ task.completed ? 'Yes' : 'No' }}</p>
+    <p *ngIf="timeSpent !== null && timeSpent > 0.1">Time Spent: {{ timeSpent }} minutes</p>
+    <p *ngIf="timeSpent === null || timeSpent < 0.1">Time Spent: Not studied</p>
+    <p>Creation: {{ task.creation?.toDate() | date }}</p>
+  </div>
+</div>

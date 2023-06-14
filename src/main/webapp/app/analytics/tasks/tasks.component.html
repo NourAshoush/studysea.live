@@ -1,0 +1,8 @@
+<div class="tasks-container">
+  <div *ngFor="let task of tasks" class="task-item">
+    <jhi-task [task]="task"></jhi-task>
+  </div>
+</div>
+<div class="no-tasks" *ngIf="tasks.length == 0">
+  <h2>You have no Tasks!</h2>
+</div>

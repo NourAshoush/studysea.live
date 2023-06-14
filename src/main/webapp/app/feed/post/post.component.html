@@ -1,0 +1,29 @@
+<div class="post">
+  <div tabindex="0" (keydown)="onKeyDown($event)" class="feed-box-container">
+    <div class="feed-box-content" (click)="redirect()">
+      <div class="feed-box-header">
+        <h2>{{ post.createdBy }}</h2>
+        <p>{{ timeSince }}</p>
+      </div>
+      <h1>{{ post.title }}</h1>
+      <p>{{ post.description }}</p>
+    </div>
+
+    <div class="feed-box-footer">
+      <a (click)="toggleLike()">
+        <fa-icon class="like-icon" title="like" icon="heart" [class.liked-icon]="isLiked"></fa-icon>
+        {{ numOfLikes }}
+      </a>
+      <a (click)="onView()">
+        <fa-icon class="comment-icon" title="comment" icon="comment"></fa-icon>
+        {{ numOfComments }}
+      </a>
+      <a (click)="onDelete()" class="action-button" *ngIf="postBelongsToUser">
+        <fa-icon icon="trash-alt" title="delete"></fa-icon>
+      </a>
+      <a (click)="onReport()" class="action-button" *ngIf="!postBelongsToUser">
+        <fa-icon icon="exclamation-circle" title="report"></fa-icon>
+      </a>
+    </div>
+  </div>
+</div>

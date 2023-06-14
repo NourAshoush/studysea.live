@@ -1,0 +1,6 @@
+<div class="league-tables-container">
+  <app-league-table *ngFor="let league of leagues" [league]="league"></app-league-table>
+</div>
+<div class="no-league-tables" *ngIf="leagues.length == 0">
+  <h2>You have no Leagues</h2>
+</div>

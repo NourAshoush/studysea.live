@@ -1,0 +1,22 @@
+{
+  "name": "studySea",
+  "short_name": "studySea",
+  "theme_color": "#427cef",
+  "icons": [
+          {
+              "src": "/content/images/android-chrome-192x192.png",
+              "sizes": "192x192",
+              "type": "image/png"
+          },
+          {
+              "src": "/content/images//android-chrome-512x512.png",
+              "sizes": "512x512",
+              "type": "image/png"
+          }
+  ],
+  "background_color": "#cbd7ef",
+  "start_url": ".",
+  "display": "standalone",
+  "orientation": "portrait"
+}
+

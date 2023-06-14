@@ -1,0 +1,101 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-report-heading" data-cy="ReportCreateUpdateHeading" jhiTranslate="teamprojectApp.report.home.createOrEditLabel">
+        Create or edit a Report
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="teamprojectApp.report.contentType" for="field_contentType">Content Type</label>
+          <input
+            type="text"
+            class="form-control"
+            name="contentType"
+            id="field_contentType"
+            data-cy="contentType"
+            formControlName="contentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="teamprojectApp.report.contentID" for="field_contentID">Content ID</label>
+          <input type="text" class="form-control" name="contentID" id="field_contentID" data-cy="contentID" formControlName="contentID" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="teamprojectApp.report.contentAuthor" for="field_contentAuthor">Content Author</label>
+          <input
+            type="text"
+            class="form-control"
+            name="contentAuthor"
+            id="field_contentAuthor"
+            data-cy="contentAuthor"
+            formControlName="contentAuthor"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="teamprojectApp.report.reportedBy" for="field_reportedBy">Reported By</label>
+          <input
+            type="text"
+            class="form-control"
+            name="reportedBy"
+            id="field_reportedBy"
+            data-cy="reportedBy"
+            formControlName="reportedBy"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="teamprojectApp.report.reportedTime" for="field_reportedTime">Reported Time</label>
+          <div class="d-flex">
+            <input
+              id="field_reportedTime"
+              data-cy="reportedTime"
+              type="datetime-local"
+              class="form-control"
+              name="reportedTime"
+              formControlName="reportedTime"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="teamprojectApp.report.reportedReason" for="field_reportedReason">Reported Reason</label>
+          <textarea
+            class="form-control"
+            name="reportedReason"
+            id="field_reportedReason"
+            data-cy="reportedReason"
+            formControlName="reportedReason"
+          ></textarea>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+<!--
+<div class="bg"></div>
+<div class="fg">
+  <h1 class="display-4"><span jhiTranslate="home.title">Welcome, Java Hipster!</span></h1>
+  <p class="lead" jhiTranslate="home.subtitle">This is your homepage</p>
+  <div [ngSwitch]="account !== null">
+    <div class="alert alert-success" *ngSwitchCase="true">
+      <span id="home-logged-message" *ngIf="account" jhiTranslate="home.logged.message" [translateValues]="{ username: account.login }"
+        >You are logged in as user "{{ account.login }}".</span
+      >
+    </div>
+  </div>
+  <a routerLink="/study">
+    <button class="button-1" role="button">Start a study session</button>
+  </a>
+</div>
+-->
+<!--Hey! This is the original version
+of Simple CSS Waves-->
+
+<div class="header">
+  <!--Content before waves-->
+  <div class="inner-header flex">
+    <svg
+      class="icon"
+      width="64px"
+      height="64px"
+      viewBox="0 0 450 450"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      style="stroke-linejoin: round; padding-right: 1rem"
+    >
+      <g>
+        <path
+          d="M3.607 265.307C1.237 252.229 0 238.758 0 225 0 100.819 100.819 0 225 0s225 100.819 225 225-100.819
+          225-225 225c-86.905 0-162.369-49.377-199.842-121.583 17.545 4.453 36.732 7.551 56.552 7.795 82.925 1.024
+          127.581-50.856 147.425-119.032 9.525-32.727 37.306-43.854 61.847-47.889 28.608-4.703 43.827-.479
+          43.827-.479l20.453-52.047s-34.618-6.559-72.957-.256c-42.412 6.972-88.067 29.162-104.529 85.722C164.703
+          247.144 137 283.4 82.37 282.726c-29.832-.368-57.863-8.835-78.763-17.419z"
+          style="fill: white"
+        />
+      </g>
+    </svg>
+    <h1>studySea</h1>
+  </div>
+  <div class="redirect-section">
+    <a routerLink="/view">
+      <button class="button-1" role="button">
+        <span>
+          Enter studySea
+          <fa-icon icon="arrow-right"> </fa-icon>
+        </span>
+      </button>
+    </a>
+  </div>
+
+  <!--Waves Container-->
+  <div>
+    <svg class="waves" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+      </defs>
+      <g class="parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+        <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+      </g>
+    </svg>
+  </div>
+  <!--Waves end-->
+
+  <div class="content flex"></div>
+</div>
+<!--Header ends-->

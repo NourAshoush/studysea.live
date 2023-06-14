@@ -1,0 +1,115 @@
+/*
+ * Bootstrap overrides https://getbootstrap.com/docs/5.1/customize/sass/
+ * All values defined in bootstrap source
+ * https://github.com/twbs/bootstrap/blob/v5.1.3/scss/_variables.scss can be overwritten here
+ * Make sure not to add !default to values here
+ */
+
+// Colors:
+// Grayscale and brand colors for use across Bootstrap.
+
+$primary: #3e8acc;
+$success: #28a745;
+$info: #17a2b8;
+$warning: #ffc107;
+$danger: #dc3545;
+
+// Options:
+// Quickly modify global styling by enabling or disabling optional features.
+$enable-rounded: true;
+$enable-shadows: false;
+$enable-gradients: false;
+$enable-transitions: true;
+$enable-hover-media-query: false;
+$enable-grid-classes: true;
+$enable-print-styles: true;
+
+// Components:
+// Define common padding and border radius sizes and more.
+
+$border-radius: 0.15rem;
+$border-radius-lg: 0.125rem;
+$border-radius-sm: 0.1rem;
+
+// Body:
+// Settings for the `<body>` element.
+
+$body-bg: #e4e5e6;
+
+// Typography:
+// Font, line-height, and color for body text, headings, and more.
+
+$font-size-base: 1rem;
+
+$dropdown-link-hover-color: white;
+$dropdown-link-hover-bg: #95a3b0;
+:root {
+  // Default theme
+  --font: 'Montserrat', sans-serif;
+  --blue: #427cef;
+  --button-box-shadow: var(--button-box-shadow);
+  --secondary-color: #6c757d;
+  --background-color: #c8d7f1;
+  --text-color: #000000;
+  --navbar-color: #eeeeee;
+  --navbar-logos: #6b6b6b;
+  --containers: #eeeeee;
+  --feed-box-header: #343a40;
+  --secondary-container: #b7caea;
+  --secondary-container-transluscent: #cbd7ef7f;
+  --my-chat-message: #b7caea;
+  --wave-colour-op7: rgba(255, 255, 255, 0.7);
+  --wave-colour-op5: rgba(255, 255, 255, 0.5);
+  --wave-colour-op3: rgba(255, 255, 255, 0.3);
+  --wave-colour: #ffffff;
+  --content: #ffffff;
+  --wave-sky: linear-gradient(60deg, rgb(38, 84, 171) 0%, rgb(66, 119, 231) 33%, rgb(25, 82, 173) 67%, rgb(3, 72, 194) 100%);
+}
+
+.dark-theme {
+  // Dark theme
+  --button-box-shadow: 0 4px 4px rgba(26, 31, 40, 0.32);
+  --primary-color: #eeeeee;
+  --secondary-color: #eeeeee;
+  --background-color: #15181d;
+  --text-color: #eeeeee;
+  --navbar-color: #1a1f28;
+  --navbar-logos: #eeeeee;
+  --containers: #1a1f28;
+  --feed-box-header: #eeeeee;
+  --secondary-container: #2c3952;
+  --secondary-container-transluscent: #2c39527f;
+  --my-chat-message: #2c3952;
+  --wave-colour-op7: rgba(71, 92, 132, 0.7);
+  --wave-colour-op5: rgba(71, 92, 132, 0.5);
+  --wave-colour-op3: rgba(71, 92, 132, 0.3);
+  --wave-colour: #475c84;
+  --content: #475c84;
+  --wave-sky: #1a1f28;
+}
+
+.high-contrast {
+  // Dark theme
+  --button-box-shadow: 0 4px 4px rgba(7, 7, 7, 0.32);
+  --primary-color: #ffffff;
+  --secondary-color: #ffffff;
+  --background-color: #000000;
+  --text-color: #ffffff;
+  --navbar-color: #000000;
+  --navbar-logos: #ffffff;
+  --containers: #070707;
+  --feed-box-header: #eeeeee;
+  --secondary-container: #111111;
+  --secondary-container-transluscent: #1111117f;
+  --my-chat-message: #111111;
+  --wave-colour-op7: rgba(71, 92, 132, 0.5);
+  --wave-colour-op5: rgba(71, 92, 132, 0.3);
+  --wave-colour-op3: rgba(71, 92, 132, 0.1);
+  --wave-colour: rgba(71, 92, 132, 0.7);
+  --content: #42557a;
+  --wave-sky: #070707;
+}
+
+.open-dyslexic {
+  --font: 'opendyslexic';
+}

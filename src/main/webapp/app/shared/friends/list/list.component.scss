@@ -1,0 +1,59 @@
+button {
+  position: absolute;
+
+  &.delete {
+    right: 0.75rem;
+    width: 2rem;
+    top: 0.5rem;
+
+    &:hover {
+      background: #f13e3e;
+    }
+  }
+
+  &.join {
+    right: 3rem;
+    width: 4rem;
+    top: 0.5rem;
+
+    &:hover {
+      background: #14943e;
+    }
+  }
+
+  height: 2rem;
+  background: #ebebeb;
+  top: 0.25rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: normal;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333333;
+
+  transition: all 0.2s;
+
+  &:hover {
+    color: #ebebeb;
+  }
+}
+
+div.list-item {
+  background: var(--secondary-container);
+  padding: 0.75rem 1.5rem;
+  margin: 0.5rem 0;
+  border-radius: 0.75rem;
+  position: relative;
+  text-align: left;
+
+  .username {
+    font-weight: 400;
+  }
+}
+
+div.main {
+  text-align: center;
+  //min-width: 35ch;
+}

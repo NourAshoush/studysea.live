@@ -1,0 +1,23 @@
+<div class="comment">
+  <div class="accent"></div>
+
+  <div class="separate">
+    <div class="usernameAndContent">
+      <div class="username">
+        <p>{{ this.comment.author }}</p>
+      </div>
+
+      <div class="content">
+        <p>{{ this.comment.content }}</p>
+      </div>
+    </div>
+    <div class="action-section">
+      <a (click)="onDelete()" class="action-button" *ngIf="commentBelongsToUser">
+        <fa-icon icon="trash-alt" title="delete this"></fa-icon>
+      </a>
+      <a (click)="onReport()" class="action-button" *ngIf="!commentBelongsToUser">
+        <fa-icon icon="exclamation-circle" title="report this"></fa-icon>
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<jhi-friend-list [friends]="friends" [context]="this" (joinSession)="onJoin($event)"></jhi-friend-list>
+<br />
+<details class="fancy">
+  <summary class="fancy-button">Add friends</summary>
+  <div>
+    <span style="padding-top: 0.5rem"
+      >Your friend code: <b>{{ userx?.id }}</b></span
+    >
+    <form id="form" [formGroup]="addFriendForm" (ngSubmit)="addFriend()" style="padding-bottom: 0.5rem">
+      <input
+        id="input"
+        autocomplete="off"
+        placeholder="Enter a friend code"
+        formControlName="code"
+        (keydown.enter)="addFriend(); $event.preventDefault()"
+        style="border-radius: 4px"
+      />
+      <button class="add-button">Add</button>
+    </form>
+    <div #canvas></div>
+    <div style="width: 240px; text-align: center; padding-bottom: 1rem">Show this code to your friends so they can quickly add you!</div>
+  </div>
+</details>

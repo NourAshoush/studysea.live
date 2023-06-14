@@ -1,0 +1,28 @@
+{
+  "teamprojectApp": {
+    "studySession": {
+      "home": {
+        "title": "Study Sessions",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Study Session",
+        "createOrEditLabel": "Create or edit a Study Session",
+        "notFound": "No Study Sessions found"
+      },
+      "created": "A new Study Session is created with identifier {{ param }}",
+      "updated": "A Study Session is updated with identifier {{ param }}",
+      "deleted": "A Study Session is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Study Session {{ id }}?"
+      },
+      "detail": {
+        "title": "Study Session"
+      },
+      "id": "ID",
+      "actualStart": "Actual Start",
+      "isPrivate": "Is Private",
+      "task": "Task",
+      "owner": "Owner",
+      "members": "Members"
+    }
+  }
+}

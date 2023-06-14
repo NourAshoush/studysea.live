@@ -1,0 +1,23 @@
+<div class="main-container">
+  <div class="center-container">
+    <div class="global-league-container">
+      <div class="global-league-banner">Global League</div>
+      <div tabindex="0" class="chart-container">
+        <canvas #barChart></canvas>
+      </div>
+      <div tabindex="0" class="total-tasks">
+        <h3>Total Tasks</h3>
+        <p>{{ totalTasks }}</p>
+      </div>
+      <div tabindex="0" class="total-hours">
+        <h3>Total Hours</h3>
+        <p>{{ totalHours | number: '1.2-2' }}</p>
+      </div>
+      <div tabindex="0" class="total-study">
+        <h3>Total Study Sessions</h3>
+        <p>{{ totalStudySessions }}</p>
+      </div>
+    </div>
+  </div>
+  <app-league-tables [leagues]="leagues"></app-league-tables>
+</div>

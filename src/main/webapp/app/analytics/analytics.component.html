@@ -1,0 +1,20 @@
+<div class="main-container">
+  <div class="analytics-container">
+    <div class="banner"></div>
+    <div class="red-square">
+      <app-donut-chart></app-donut-chart>
+    </div>
+    <div tabindex="0" class="history-overview">
+      <h2 class="history-header">History</h2>
+      <p class="history-item">Total Tasks: {{ totalTasks }}</p>
+      <p class="history-item">Tasks Created This Week: {{ tasksCreatedThisWeek }}</p>
+      <p class="history-item">Completed Tasks: {{ completedTasks }}</p>
+      <p class="history-item">Total Study Time: {{ totalStudyTime.toFixed(2) }} hours</p>
+      <p class="history-item">Lowest Studied Time Task: {{ lowestStudiedTimeTask?.title }}</p>
+    </div>
+  </div>
+  <div class="tasks-container">
+    <div class="tasks-banner">Tasks</div>
+    <jhi-tasks></jhi-tasks>
+  </div>
+</div>

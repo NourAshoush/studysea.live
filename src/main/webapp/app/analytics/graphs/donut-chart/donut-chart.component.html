@@ -1,0 +1,7 @@
+<div [hidden]="!userHasStudied">
+  <canvas #donut></canvas>
+</div>
+
+<div *ngIf="!userHasStudied">
+  <h3>You haven't studied! After you study, a pie chart will appear.</h3>
+</div>

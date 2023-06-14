@@ -1,0 +1,25 @@
+<div id="overlay" (click)="ngOnDestroy()"></div>
+
+<div id="container">
+  <div id="header">New League</div>
+
+  <div id="content">
+    <label>Name:</label>
+    <br />
+    <input type="text" id="input-name" placeholder="League Name" class="full-width" />
+    <br />
+
+    <label>Add Friends:</label>
+    <br />
+    <span *ngIf="friends.length == 0">You have no friends to add :'(</span>
+    <ul>
+      <li *ngFor="let friend of friends"><input type="checkbox" (change)="toggleValue(friend)" /> {{ friend.user?.login }}</li>
+    </ul>
+    <!--    <input type="text" #subjectBox (keyup)="getSubject(subjectBox.value)" placeholder="Enter Subject Here" class="full-width" />-->
+    <br /><br />
+
+    <div id="center-align">
+      <button (click)="createLeague()"><fa-icon icon="save"></fa-icon>&nbsp;Create</button>
+    </div>
+  </div>
+</div>

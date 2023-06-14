@@ -1,0 +1,13 @@
+<div class="page-top"></div>
+
+<!--<p class="lead text-center" jhiTranslate="home.subtitle">This is your homepage</p>-->
+<jhi-bg-animation></jhi-bg-animation>
+
+<div class="main-container">
+  <div class="study-timer-container">
+    <form id="aForm" [formGroup]="roomForm" (ngSubmit)="submitRoom()">
+      <input id="anInput" autocomplete="off" placeholder="Enter room..." formControlName="roomName" />
+      <button>Submit</button>
+    </form>
+  </div>
+</div>

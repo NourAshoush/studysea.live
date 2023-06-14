@@ -1,0 +1,24 @@
+<div class="overlay" (click)="ngOnDestroy()"></div>
+
+<div class="container">
+  <div class="header">Create a post</div>
+
+  <div class="content">
+    <label>Post Title</label>
+    <label class="requiredLabel" *ngIf="!titleProvidedCondition">&nbsp;&nbsp;&nbsp;~ Required</label>
+    <div>
+      <input type="text" #titleBox (keyup)="getTitleInput(titleBox.value)" placeholder="Enter title here" />
+    </div>
+
+    <label>Description</label>
+    <div>
+      <textarea #descriptionBox (keyup)="getDescriptionInput(descriptionBox.value)" placeholder="Enter description here"></textarea>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="cancel" (click)="ngOnDestroy()"><fa-icon icon="ban"></fa-icon>&nbsp;Cancel</button>
+
+    <button (click)="postPost()"><fa-icon icon="save"></fa-icon>&nbsp;Post</button>
+  </div>
+</div>

@@ -1,0 +1,89 @@
+<div class="user-list">
+  <div class="col">
+    <div class="bg row-md">
+      <div class="list-group p-3">
+        <div *ngFor="let userX of chatService.usersInSession">
+          <div *ngIf="userX.id == me.id; else notme">
+            <div class="list-group-item flex-column align-items-start me">
+              <div class="d-flex w-100 justify-content-start user h-100">
+                <div class="user-colour-indicator" [style]="'--user-hue:' + calculateHue(userX)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+
+                <h5 class="mb-1">
+                  <strong>{{ userX.user?.login }}</strong> is in this session.
+                </h5>
+              </div>
+              <div class="isMe">&nbsp;</div>
+            </div>
+          </div>
+          <ng-template #notme>
+            <div class="list-group-item flex-column align-items-start">
+              <div class="d-flex w-100 justify-content-start user h-100">
+                <div class="user-colour-indicator" [style]="'--user-hue:' + calculateHue(userX)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                <h5 class="mb-1">
+                  <strong>{{ userX.user?.login }}</strong> is in this session.
+                </h5>
+              </div>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="bg row-md" style="margin-top: 0.5rem; margin-bottom: 0.5rem">
+      <div class="list-group p-3">
+        <div class="list-group-item exit-button p-3" (click)="modalService.showConfirmExitSessionBreak = true">
+          <div class="d-flex w-100">
+            <!--            <button class="fancy-button exit-button" role="button" (click)="modalService.showConfirmExitSessionBreak = true">-->
+            <!--              Exit Study Session-->
+            <!--            </button>-->
+            <span class="exit-text">Exit Study Session</span>
+          </div>
+        </div>
+        <div class="list-group-item flex-column align-items-start info">
+          <div class="d-flex w-100 justify-content-between">
+            <span style="font-weight: 500">
+              Your task: <i>{{ myTask.title }}</i>
+            </span>
+          </div>
+        </div>
+        <div class="list-group-item flex-column align-items-start info">
+          <div class="d-flex w-100 justify-content-between">
+            <span style="font-weight: 500">
+              Task subject: <i>{{ myTask.subject }}</i>
+            </span>
+          </div>
+        </div>
+        <div class="list-group-item flex-column align-items-start info col-sm">
+          <span style="font-weight: 500">
+            Study length:
+            <i>
+              <strong>{{ myTask.studyLength }} minutes</strong>
+              (<strong>{{ studyBlocksCompleted }} {{ studyBlocksCompleted == 1 ? 'block' : 'blocks' }}</strong> completed)
+            </i>
+          </span>
+        </div>
+        <div class="list-group-item flex-column align-items-start info col-sm">
+          <span style="font-weight: 500">
+            Break length:
+            <i>
+              <strong>{{ myTask.breakLength }} minutes</strong>
+              (<strong>{{ breakBlocksCompleted }} {{ breakBlocksCompleted == 1 ? 'block' : 'blocks' }}</strong> completed)
+            </i>
+          </span>
+        </div>
+        <div class="list-group-item flex-column align-items-start info col-sm">
+          <span>
+            Time spent studying so far: <strong>{{ timeSpentStudying }} minutes</strong>
+          </span>
+        </div>
+        <div class="list-group-item flex-column align-items-start info col-sm">
+          <span style="font-weight: 500">
+            <input type="checkbox" (change)="toggleAnimation()" [checked]="!animate.disabled" />
+            <label>Enable Animation</label>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

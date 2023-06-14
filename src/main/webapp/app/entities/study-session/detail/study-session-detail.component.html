@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="studySession">
+      <h2 data-cy="studySessionDetailsHeading"><span jhiTranslate="teamprojectApp.studySession.detail.title">Study Session</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ studySession.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="teamprojectApp.studySession.actualStart">Actual Start</span></dt>
+        <dd>
+          <span>{{ studySession.actualStart | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="teamprojectApp.studySession.isPrivate">Is Private</span></dt>
+        <dd>
+          <span>{{ studySession.isPrivate }}</span>
+        </dd>
+        <dt><span jhiTranslate="teamprojectApp.studySession.task">Task</span></dt>
+        <dd>
+          <div *ngIf="studySession.task">
+            <a [routerLink]="['/task', studySession.task.id, 'view']">{{ studySession.task.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="teamprojectApp.studySession.owner">Owner</span></dt>
+        <dd>
+          <div *ngIf="studySession.owner">
+            <a [routerLink]="['/user-extended', studySession.owner.id, 'view']">{{ studySession.owner.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/study-session', studySession.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

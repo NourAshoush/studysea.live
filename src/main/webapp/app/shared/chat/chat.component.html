@@ -1,0 +1,19 @@
+<div class="chat">
+  <div class="bg">
+    <ul id="messages">
+      <li *ngFor="let message of chatService.messages" [class]="message.type" [style]="'--hue:' + message.hue">
+        {{ message.message }}
+      </li>
+    </ul>
+  </div>
+  <form id="form" [formGroup]="chatForm" (ngSubmit)="sendMessage()">
+    <input
+      id="input"
+      autocomplete="off"
+      placeholder="Enter a message..."
+      formControlName="msg"
+      (keydown.enter)="sendMessage(); $event.preventDefault()"
+    />
+    <button>&gt;</button>
+  </form>
+</div>

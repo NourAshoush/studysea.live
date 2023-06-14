@@ -1,0 +1,41 @@
+#page-top {
+  font-family: var(--font);
+}
+
+#title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text-color);
+  text-align: left;
+  margin: 0;
+  padding-bottom: 1%;
+}
+
+#create-post-button {
+  display: inline-block;
+  margin-left: auto;
+  background: var(--blue);
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1rem;
+  line-height: 2.7rem;
+  border-radius: 50px;
+  width: 170px;
+  text-align: center;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+#create-post-button:hover {
+  background: #ebebeb;
+  color: var(--blue);
+  box-shadow: var(--button-box-shadow);
+}
+
+#page-top {
+  display: flex;
+  align-items: center;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-top: 1.5rem;
+}

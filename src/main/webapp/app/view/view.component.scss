@@ -1,0 +1,118 @@
+/* ==========================================================================
+Main page styles
+========================================================================== */
+
+.hipster {
+  display: inline-block;
+  width: 347px;
+  height: 497px;
+}
+
+/* wait autoprefixer update to allow simple generation of high pixel density media query */
+/*@media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (-moz-min-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx) {
+}*/
+
+.fancy-button {
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.pomoText {
+  border: none !important;
+  background: var(--containers);
+  color: #000000;
+}
+
+.row {
+  padding-top: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  margin-left: 0;
+  margin-right: 0;
+  //overflow-x: hidden;
+  //width: calc(100% - 1rem);
+  //width: 100%;
+}
+
+.row:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.col-md {
+  padding-bottom: 0.5rem;
+}
+
+.introText {
+  font-family: 'Montserrat', sans-serif;
+  display: inline-block;
+  margin-left: auto;
+  text-decoration: none;
+  background: var(--containers);
+  border-radius: 30px;
+  text-align: center;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+details.whyPomodoro {
+  .why-container {
+    background: var(--containers);
+    padding: 1rem;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+
+  margin-bottom: 0.5rem;
+}
+
+.embed-container {
+  padding: 2rem;
+  margin-top: 0.5rem;
+  background: var(--containers);
+  border-radius: 1.35rem;
+
+  h2 {
+    text-align: center;
+    margin-top: 0;
+    position: relative;
+    bottom: 0.5rem;
+  }
+}
+
+.join {
+  border: none !important;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  display: inline-block;
+  margin-left: auto;
+  background: var(--blue);
+  text-decoration: none;
+  color: #ffffff;
+  line-height: 1.5rem;
+  border-radius: 2rem;
+  width: 15%;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.join:hover {
+  background: #ebebeb;
+  color: var(--blue);
+  box-shadow: var(--button-box-shadow);
+}
+
+.block {
+  padding-left: 5%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.study-session-container {
+  padding-left: 2%;
+}

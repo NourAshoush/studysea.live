@@ -1,0 +1,63 @@
+/* ==========================================================================
+Main page styles
+========================================================================== */
+
+.hipster {
+  display: inline-block;
+  width: 347px;
+  height: 497px;
+}
+
+/* wait autoprefixer update to allow simple generation of high pixel density media query */
+/*@media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (-moz-min-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx) {
+}*/
+
+.button-9:focus {
+  box-shadow: rgba(50, 50, 93, 0.1) 0 0 0 1px inset, rgba(50, 50, 93, 0.2) 0 6px 15px 0, rgba(0, 0, 0, 0.1) 0 2px 2px 0,
+    rgba(50, 151, 211, 0.3) 0 0 0 4px;
+}
+
+.main-container {
+  padding-top: 1.8rem;
+  height: 100%;
+}
+
+.study-timer-container {
+  border-radius: 15px;
+  height: fit-content;
+  width: fit-content;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 4rem;
+  background-color: var(--containers);
+  overflow: hidden;
+  margin: 0 auto;
+  text-align: center;
+
+  div {
+    display: flex;
+    align-content: center;
+    button {
+      margin: 0 1rem;
+    }
+  }
+}
+
+jhi-bg-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  //z-index: -1;
+}
+
+#aForm {
+  margin-top: 1rem;
+}

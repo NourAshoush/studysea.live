@@ -1,0 +1,20 @@
+<ng-template [ngIf]="userx == null || friendx == null || friendx.id === userx.id || friends.includes(friendx.id)" [ngIfElse]="valid">
+  <div class="container text-red">
+    <p class="h4 text-center">Error!</p>
+    <p *ngIf="userx == null">Unable to fetch your user!</p>
+    <p *ngIf="friendx?.id === userx?.id">You can't be friends with yourself!</p>
+    <p *ngIf="friendx != null && friends.includes(friendx.id)">You are already friends with this user!</p>
+    <p *ngIf="friendx == null">Unable to find a friend with that id!</p>
+  </div>
+</ng-template>
+<ng-template #valid>
+  <div class="container">
+    <p class="h4 text-center">
+      Add <b>{{ friendx?.user?.login ?? '???' }}</b> as a friend?
+    </p>
+    <br />
+    <div class="text-center">
+      <button class="fancy-button" role="button" (click)="addFriend()">Add</button>
+    </div>
+  </div>
+</ng-template>

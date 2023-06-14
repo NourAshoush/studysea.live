@@ -1,0 +1,25 @@
+<div class="overlay" (click)="ngOnDestroy()"></div>
+
+<div class="container">
+  <div class="post-delete" *ngIf="contentTypeIsPost">
+    <p class="container-title">Delete this post?</p>
+    <p class="container-description">
+      Are you sure you want to delete your post titled '<i>{{ postToDelete.title }}</i
+      >'? Deleting this post is permanent and cannot be undone.
+    </p>
+  </div>
+
+  <div class="comment-delete" *ngIf="!contentTypeIsPost">
+    <p class="container-title">Delete this comment?</p>
+    <p class="container-description">
+      Are you sure want to delete your comment '<i>{{ commentToDelete.content }}</i
+      >'? Deleting this comment is permanent and cannot be undone.
+    </p>
+  </div>
+
+  <div class="action-buttons">
+    <button class="cancel" (click)="ngOnDestroy()"><fa-icon icon="ban"></fa-icon>&nbsp;Cancel</button>
+
+    <button (click)="deleteContent()"><fa-icon icon="trash-alt" title="delete"></fa-icon>&nbsp;Delete</button>
+  </div>
+</div>
