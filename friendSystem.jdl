@@ -1,0 +1,17 @@
+entity UserExtended {
+    status String
+}
+
+entity Friend
+
+relationship OneToOne {
+    UserExtended{user(login)} to User
+}
+
+relationship ManyToOne {
+    Friend{friendshipFrom} to UserExtended
+}
+
+relationship OneToMany {
+    UserExtended{friends} to Friend{friendshipTo}
+}
