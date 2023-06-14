@@ -1,0 +1,96 @@
+entity Post {
+    createdBy String
+    creationTime Instant
+    title String
+    description TextBlob
+    likes Integer
+    likedBy TextBlob
+}
+
+entity Comment {
+    content TextBlob
+    author String
+    postID String
+    creationTime Instant
+}
+
+filter Post
+filter Comment
+
+paginate Post with infinite-scroll
+paginate Comment with infinite-scroll
+//paginate AfterStudy with infinite-scroll
+//paginate Task with infinite-scroll
+//paginate StudySession with infinite-scroll
+//paginate LeagueTable with infinite-scroll
+
+entity Report {
+    contentType String
+    contentID String
+    contentAuthor String
+    reportedBy String
+    reportedTime Instant
+    reportedReason TextBlob
+}
+
+paginate Report with infinite-scroll
+
+entity UserExtended {
+    firstName String
+    lastName String
+    email String
+    status String
+    institution String
+    course String
+    description TextBlob
+    privacy Boolean
+    darkMode Boolean
+}
+
+entity Friend
+
+entity LeagueTable {
+    name String
+}
+
+entity Task {
+    start Instant
+    creation Instant
+    title String
+    subject String
+    studyLength Integer
+    breakLength Integer
+    completed Boolean
+}
+
+entity AfterStudy {
+    timeSpent Duration
+}
+
+entity StudySession {
+    actualStart Instant
+    isPrivate Boolean
+}
+
+filter Task
+
+relationship OneToOne {
+    UserExtended{user(login)} to User
+    AfterStudy{task} to Task
+    StudySession{task} to Task
+    StudySession{owner} to UserExtended
+}
+
+relationship ManyToOne {
+    Friend{friendshipFrom} to UserExtended
+    Task{createdBy} to UserExtended
+}
+
+relationship OneToMany {
+    UserExtended{friends} to Friend{friendshipTo}
+    StudySession{members} to UserExtended
+}
+
+relationship ManyToMany {
+    LeagueTable{members} to UserExtended{leagues}
+}
