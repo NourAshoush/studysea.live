@@ -10,12 +10,12 @@ Upon navigating to StudySea's website, users are greeted by an aesthetically ple
 <img src="https://github.com/NourAshoush/studysea.live/blob/main/images/image1.png">
 
 Clicking the "Enter StudySea" button redirects users to the homepage, where they can easily navigate to different sections of the platform, such as the league page. The homepage features a navigation bar in the header, except during study and break sessions. The left side of the page displays users' scheduled tasks, allowing effective planning and easy deletion of tasks. The top right corner provides an option to start an instant study session, opening a modal where users can input session details for immediate commencement. Users can also choose to find a study buddy, which lists all ongoing study sessions across the platform. However, the participants' identities are concealed until joining a session. The center of the homepage offers an introduction to the app and a dropdown explaining the Pomodoro technique for new users.
-<img src="https://github.com/NourAshoush/studysea.live/blob/main/images/image5.png">
+<img src="https://github.com/NourAshoush/studysea.live/blob/main/images/image5.png" height="30%">
 
 ## Task Planning and Study Sessions
 The "Create Task" feature on the homepage is a simple yet essential tool for task planning within the app. Clicking the "Create Task" button opens a modal dialog window where users can enter their task's start time, study length, break length, title, and subject. Default values are provided for convenience. Saving the task triggers a POST request to the database, creating a new task associated with the user. The user's tasks are displayed chronologically on their homepage.
-![Creating New Task](https://github.com/NourAshoush/studysea.live/blob/main/images/image9.png)
-![Displayed Tasks](https://github.com/NourAshoush/studysea.live/blob/main/images/image14.png)
+<img src="https://github.com/NourAshoush/studysea.live/blob/main/images/image9.png" height="30%">
+<img src="https://github.com/NourAshoush/studysea.live/blob/main/images/image14.png" height="30%">
 
 
 Study Sessions serve as the core element of StudySea. They consist of three main pages: the study timer page, the break page, and the "post study" page. Users can initiate a session by creating a scheduled task or an instant study session. Although both methods function similarly, instant study sessions create hidden tasks in the database for seamless integration. An ephemeral study session is created alongside the task to store member lists and the session's actual start time. The timer page displays a countdown based on the selected study length, allowing users to join the session at any time. A progress bar beneath the timer visually represents the elapsed time within the study block. Upon completing the study block, users are automatically redirected to the break page.
