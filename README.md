@@ -1,3 +1,4 @@
+![StudySea Logo](https://github.com/NourAshoush/studysea.live/blob/main/images/image11.png)
 # StudySea: A Social Studying Platform
 StudySea is a unique social studying platform designed to enhance productivity, foster collaboration, and minimize distractions. It combines the effectiveness of the Pomodoro technique, a task planner, and a study motivation website, creating an environment that encourages students to work efficiently towards their academic goals while incorporating a social and collaborative element.
 
