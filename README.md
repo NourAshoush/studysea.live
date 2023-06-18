@@ -1,6 +1,7 @@
 # StudySea: A Social Studying Platform
 StudySea is a unique social studying platform designed to enhance productivity, foster collaboration, and minimize distractions. It combines the effectiveness of the Pomodoro technique, a task planner, and a study motivation website, creating an environment that encourages students to work efficiently towards their academic goals while incorporating a social and collaborative element.
-![StudySea Logo](https://github.com/NourAshoush/studysea.live/blob/main/images/image11.png)
+<img src="https://github.com/NourAshoush/studysea.live/blob/main/images/image11.png" width="60%" height="30%">
+<!-- ![StudySea Logo](https://github.com/NourAshoush/studysea.live/blob/main/images/image11.png) -->
 
 ## Key Features
 StudySea revolves around the concept of a shared study room linked to user tasks. Users can join their friends' study sessions, customize their own task details, and benefit from a synchronized real-time study/break timer. The standout feature of StudySea is that users can only interact during designated break periods. This approach emulates the experience of real-life group study while providing a digital platform for collaborative learning, which became especially relevant during the global shift to online education in 2020. Additionally, StudySea offers a range of features, including a feed, league system, and friends system, further enhancing the user experience.
